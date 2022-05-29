@@ -50,7 +50,7 @@
                                         <a href="{{ route('transaction.create', $data->id) }}" type="submit"
                                             class="btn btn-info fw-bold"> <i class="fa fa-money"></i> Checkout </a>
 
-                                        <a href="{{ route('user.cart.delete', $data->id) }}" class="btn btn-danger "> <i
+                                        <a href="{{ route('cart.delete', $data->id) }}" class="btn btn-danger "> <i
                                                 class="fa fa-trash"></i> Delete</a>
 
 

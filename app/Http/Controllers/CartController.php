@@ -39,7 +39,7 @@ class CartController extends Controller
 
         Cart::create($cartAttribute);
         
-        return redirect()->route('user.cart.index');
+        return redirect()->route('cart.index');
     }
 
     public function decrementQty($id)

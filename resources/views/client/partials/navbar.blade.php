@@ -27,8 +27,8 @@
                        <i class="fa fa-user-circle"></i>  {{ Auth::user()->name }}
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                        <li><a class="dropdown-item" href="{{route('user.cart.index')}}"> <i class="fa fa-cart-plus" aria-hidden="true"></i> Cart</a></li>
-                        <li><a class="dropdown-item" href="{{route('user.transaction.list')}}"> <i class="fa fa-paper-plane" aria-hidden="true"></i>  Transaction</a></li>
+                        <li><a class="dropdown-item" href="{{route('cart.index')}}"> <i class="fa fa-cart-plus" aria-hidden="true"></i> Cart</a></li>
+                        <li><a class="dropdown-item" href="{{route('transaction.list')}}"> <i class="fa fa-paper-plane" aria-hidden="true"></i>  Transaction</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
@@ -44,8 +44,8 @@
                    <i class="fa fa-user-circle"></i>  Guest
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                    <li><a class="dropdown-item" href="{{route('user.login')}}"> Login</a></li>
-                    <li><a class="dropdown-item" href="{{route('user.register')}}">  Register</a></li>
+                    <li><a class="dropdown-item" href="{{route('login')}}"> Login</a></li>
+                    <li><a class="dropdown-item" href="{{route('register')}}">  Register</a></li>
                 </ul>
             </li>
             @endguest

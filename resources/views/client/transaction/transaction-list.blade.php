@@ -39,7 +39,7 @@
                                             @empty($transaction->proof_of_payment)
                                                 <div class="text-wrap py-2" style="width:180px">
                                                     You still not attached proof of payment yet for this product <br>
-                                                    <a href="{{ route('user.transaction.proofOfPayment', $transaction->id) }}"
+                                                    <a href="{{ route('transaction.proofOfPayment', $transaction->id) }}"
                                                         class="mt-2 btn btn-info">Complete your transaction</a>
                                                 </div>
                                             @endempty

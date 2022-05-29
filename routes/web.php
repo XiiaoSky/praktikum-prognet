@@ -54,7 +54,7 @@ Route::get('/{id}/transaction/cities/{province_id}', [TransactionController::cla
 Route::post('/{id}/transaction/store',[TransactionController::class,'store'])->name('transaction.store');
 
 
-Route::prefix('user')->name('user.')->group(function(){
+
     Route::middleware(['guest:web'])->group(function(){
         Route::get('login',[Login::class,'login'])->name('login');
         Route::get('register',[Login::class,'register'])->name('register');
@@ -74,7 +74,6 @@ Route::prefix('user')->name('user.')->group(function(){
 
     });
 
-});
 
 
 Route::prefix('admin')->name('admin.')->group(function(){

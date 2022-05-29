@@ -92,7 +92,7 @@ class TransactionController extends Controller
         // dd($transactionAttribute);
         Transaction::create($transactionAttribute);
         
-        return redirect()->route('user.transaction.list');
+        return redirect()->route('transaction.list');
     }
 
 

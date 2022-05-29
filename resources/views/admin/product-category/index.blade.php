@@ -14,9 +14,9 @@
             </tr>
         </thead>
         <tbody>
-            @forelse ($productCategories as $key => $productCategory)
+            @foreach ($productCategories as $productCategory)
                 <tr>
-                    <td>{{$key + 1}}</th>
+                    <td>{{$loop->index + 1}}</th>
                     <td>{{$productCategory->category_name}}</td>
                   
                     <td>
@@ -27,12 +27,8 @@
                             <input type="submit" class="btn btn-danger my-1" onclick="return confirm('Are you sure?')" value="Delete">
                         </form>
                     </td>
-                </tr>
-            @empty
-                <tr colspan="3">
-                    <td class="text-center">No data</td>
-                </tr>  
-            @endforelse              
+                </tr>   
+            @endforeach             
         </tbody>
     </table>
 @endsection

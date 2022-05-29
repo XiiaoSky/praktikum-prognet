@@ -41,7 +41,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{{route('admin.product-category.index')}}">
               <span data-feather="layers"></span>
               Product's Category
             </a>

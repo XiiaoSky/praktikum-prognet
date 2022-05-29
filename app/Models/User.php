@@ -25,6 +25,10 @@ class User extends Authenticatable implements MustVerifyEmail
     public function pembeli(){
         return $this->belongsTo(trx::class,'id_users');
     }
+    public function carts()
+    {
+        return $this->hasMany(Cart::class);
+    }
 
     
 

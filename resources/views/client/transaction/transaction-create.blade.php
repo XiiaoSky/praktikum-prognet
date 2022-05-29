@@ -56,7 +56,7 @@
                             <i class="fa fa-user-circle"></i> {{ Auth::user()->name }}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                            <li><a class="dropdown-item" href="{{ route('user.cart.index') }}"> <i class="fa fa-cart-plus"
+                            <li><a class="dropdown-item" href="{{ route('cart.index') }}"> <i class="fa fa-cart-plus"
                                         aria-hidden="true"></i> Cart</a></li>
                             <li>
                                 <hr class="dropdown-divider">
@@ -139,7 +139,7 @@
                                                 <div class="form-group">
                                                     <label class="font-weight-bold">Alamat anda</label>
                                                     <input type="text" class="form-control" name="address" id="address"
-                                                        placeholder="Masukkan Berat (GRAM)"> </input>
+                                                        placeholder="Masukkan detail alamat anda"> </input>
                                                 </div>
                                                 <hr>
                                             </div>
