@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+// use Illuminate\Auth\Events\Registered;
+
 
 class Admin extends Controller
 {
@@ -15,15 +17,15 @@ class Admin extends Controller
 
     public function proses_login(request $request){
         $request->validate([
-            'email'=>'required',
-            'password'=>'required'
+            'email'=> 'required',
+            'password'=> 'required'
         ]);
 
         $check= $request->only('email','password');
         if(Auth::guard('admin')->attempt($check)){
             return redirect()->route('admin.home')->with('success','Login Success');
         }else{
-            return redirect()->back()->with('erorr','Login Failed');
+            return redirect()->back()->with('error','Login Failed');
         }
     
     }

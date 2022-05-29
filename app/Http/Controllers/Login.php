@@ -26,7 +26,8 @@ class Login extends Controller
         $request->validate([
             'nama'=>'required',
             'email'=>'required|unique:users,email',
-            'password'=>'required'
+            'password'=>'required',
+            'repeat_password'=>'required|same:password'
         ]);
 
       
@@ -49,12 +50,12 @@ class Login extends Controller
     public function proses_login(request $request){
         $request->validate([
             'email'=>'required',
-            'password'=>'required'
+            'password'=>'required',
         ]);
 
         $check= $request->only('email','password');
         if(Auth::guard('web')->attempt($check)){
-            return redirect()->route('user.home')->with('success','Login Success');
+            return redirect()->route('home')->with('success','Login Success');
         }else{
             return redirect()->back()->with('erorr','Login Failed');
         }
@@ -63,6 +64,6 @@ class Login extends Controller
 
     public function logout(Request $request){
         Auth::guard('web')->logout();
-        return redirect()->route('user.login');
+        return redirect()->route('login');
     }
 }

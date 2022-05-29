@@ -7,6 +7,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\Toko;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\AdminManagementController;
 use App\Http\Controllers\DiscountController;
 use App\Http\Controllers\ProductImageController;
 use App\Http\Controllers\ProductCategoryController;
@@ -77,12 +78,21 @@ Route::prefix('user')->name('user.')->group(function(){
 
 
 Route::prefix('admin')->name('admin.')->group(function(){
-        Route::middleware(['guest:admin'])->group(function(){
-            Route::get('login',[Admin::class,'login'])->name('login');
-            Route::post('logins_proses',[Admin::class,'proses_login'])->name('login_proses');
-        });
-        // Route::middleware(['auth:admin'])->group(function(){
-            Route::view('home','admin.home')->name('home');
+    Route::middleware(['guest:admin'])->group(function(){
+        Route::get('login',[Admin::class,'login'])->name('login');
+        Route::post('logins_proses',[Admin::class,'proses_login'])->name('login_proses');
+    });
+    Route::middleware(['auth:admin'])->group(function(){
+        Route::view('home','admin.home')->name('home');
+
+        //admin management
+        Route::get('/admin-management', [AdminManagementController::class, 'index'])->name('management.index');
+        Route::get('/admin-management/add', [AdminManagementController::class, 'create'])->name('management.add');
+        Route::post('/admin-management/store', [AdminManagementController::class, 'store'])->name('management.store');
+        Route::get('/admin-management/delete-{id}', [AdminManagementController::class, 'destroy'])->name('management.delete');
+        Route::get('/admin-management/edit-{id}', [AdminManagementController::class, 'edit'])->name('management.edit');
+        Route::post('/admin-management/update-{id}', [AdminManagementController::class, 'update'])->name('management.update');
+
             //product
             Route::get('/list-product', [ProductController::class, 'index'])->name('product-list');
             Route::get('/add-product', [ProductController::class, 'create']);
@@ -128,7 +138,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
             // Transaction
             Route::get('transactions', [TransactionController::class, 'indexOnAdmin'])->name('transaction-index');
         
-        // });
+        });
 
 });
 

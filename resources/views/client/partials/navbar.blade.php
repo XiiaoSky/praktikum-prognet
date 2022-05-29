@@ -32,7 +32,7 @@
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="{{route('logout')}}"><i class="fa fa-sign-out"></i> Logout</a></li>
+                        <li><a class="dropdown-item" href="{{url('/logout')}}"><i class="fa fa-sign-out"></i> Logout</a></li>
                     </ul>
                 </li>
             @endauth

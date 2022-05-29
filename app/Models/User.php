@@ -7,41 +7,42 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use PhpParser\Builder\Trait_;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
     protected $fillable = [
         'name',
         'email',
         'password',
     ];
-    public function pembeli()
-    {
-        return $this->belongsTo(trx::class, 'id_users');
+    public function pembeli(){
+        return $this->belongsTo(trx::class,'id_users');
     }
 
-    public function transaction()
-    {
-        return $this->hasMany(Transaction::class, 'user_id');
-    }
+    
 
-    public function carts()
-    {
-        return $this->hasOne(Cart::class, 'user_id');
-    }
-
-
-
-
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array<int, string>
+     */
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];

@@ -23,9 +23,9 @@ class ProductCategoryController extends Controller
     }
 
     public  function edit($id){
-        $productCategory = ProductCategory::find($id);
+        $productCategories = ProductCategory::find($id);
         
-        return view('admin.product-category.edit', compact('productcategories'));
+        return view('admin.product-category.edit', compact('productCategories'));
     }
 
     public function update(Request $request, $id){
@@ -33,8 +33,44 @@ class ProductCategoryController extends Controller
         return redirect()->route('admin.product-category.index');   
     }
 
-    public function delete($id){
-        ProductCategory::find($id)->delete();
-        return redirect()->route('admin.product-category.index'); 
+    public function destroy($id)
+    {
+        $productCategories = ProductCategory::find($id);
+        $productCategories->delete();
+        return redirect()->route('admin.product-category.index');
     }
+
+    public function trash()
+    {
+        $productCategories = ProductCategory::onlyTrashed()->get();
+        return view('admin.trashcat.list', compact('productCategories'));
+    }
+    
+    
+    public function restore($id = null)
+    {
+        $productCategories = ProductCategory::onlyTrashed()->where('id', $id) ->restore();
+        
+        return redirect('admin/product-category/trash');
+    }
+
+    public function restore_all()
+    {
+        $productCategories = ProductCategory::onlyTrashed()->restore();
+        
+        return redirect('admin/product-category/trash');
+    }
+
+    public function delete($id = null){
+        $productCategories = ProductCategory::onlyTrashed()->where('id', $id)->forceDelete();
+        //ProductCategory::find($id)->delete();
+        return redirect('admin/product-category/trash');
+    }
+    public function delete_all()
+    {
+        $productCategories = ProductCategory::onlyTrashed()->forceDelete();
+
+        return redirect('admin/product-category/trash');
+    }
+
 }
