@@ -37,7 +37,7 @@
 
                     </td>
                     <td>{{ $transaction->address }}</td>
-                    <td>{{ $transaction->user->carts->qty}}</td>
+                    <td>{{ $transaction->user->carts}}</td>
 
                     <td>Rp. {{ $transaction->shipping_cost }}</td>
                     <td>Rp. {{ $transaction->timeout }}</td>

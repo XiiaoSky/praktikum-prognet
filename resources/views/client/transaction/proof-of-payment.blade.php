@@ -22,8 +22,8 @@
 
                         </div>
                         <div class="col-lg-3 text-end m-0">
-                            <h6>{{ $transactionByUser->first()->user->carts }}</h6>
-                            <h6>{{ number_format($transactionByUser->first()->user->carts) }}</h6>
+                            
+                            
                             <h6>{{ $transactionByUser->first()->user->carts->qty}} item</h6>
                             <h6>Rp. {{ number_format($transactionByUser->shipping_cost) }}</h6>
                             <h6>{{$transactionByUser->first()->user->carts->qty }} item * Rp.{{ number_format($transactionByUser->first()->user->carts->products[0]->price) }} = </h6>
